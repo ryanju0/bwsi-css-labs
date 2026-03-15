@@ -23,6 +23,8 @@ def simple_calculator(operation: str, num1: float, num2: float) -> float:
         float: The result of the operation.
     """
 
+    operation = operation.strip().lower()
+
     if operation == "add":
         return num1 + num2
     elif operation == "subtract":
@@ -52,8 +54,7 @@ def request_sanitized_number(prompt: str) -> float:
             print("Invalid input. Please enter a valid number.")
 
 def main():
-    
-    print(f"===== Simple Calculator =====")
+    print("===== Simple Calculator =====")
 
     # Ask the user for sample input    
     num1 = request_sanitized_number("Enter the first number: ")
@@ -62,7 +63,7 @@ def main():
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
-    print(f"The result of {operation}ing {num1} and {num2} is: {result}")
+    print(f"The result is: {result}")
 
 
 if __name__ == "__main__":

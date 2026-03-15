@@ -4,7 +4,15 @@ tests_1b.py
 This module contains unit tests for the simple_calculator function defined in lab_1b.py.
 """
 
+from pathlib import Path
+import sys
+
 import pytest
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from labs.lab_1.lab_1b import simple_calculator
 
 def test_addition():
@@ -38,4 +46,4 @@ def test_invalid_operation():
         simple_calculator("", 5, 3)                     # Test for empty operation
 
 if __name__ == "__main__":
-    pytest.main()
+    pytest.main([__file__])
